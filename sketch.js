@@ -1,3 +1,5 @@
+var gameState;
+
 var snake;
 var msr = 20;
 var food;
@@ -27,7 +29,6 @@ function draw() {
   snake.death();
   snake.update();
   snake.visible();
-
 
   fill(255,20,80);
   rect(food.x,food.y,msr,msr);

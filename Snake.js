@@ -27,12 +27,18 @@ function Snake(){
             var pos = this.tail[i];
             var d = dist(this.x, this.y, pos.x, pos.y);
             if(d < 1) {
-                text("GAME OVER !!",300,300);
                 this.total = 0;
                 this.tail = [];
             }
         }
     }
+
+    //if(this.snake.x > 499 || this.snake.x < 0 || this.snake.y > 0 || this.snake.y < 500){
+      // text("GAME OVER !!");
+        //background("red");
+          //  }
+        //} 
+    //}
 
     this.update = function(){
         if(this.total === this.tail.length) {
@@ -43,11 +49,6 @@ function Snake(){
         this.tail[this.total-1] = createVector(this.x, this.y);
 
 
-        for(var i = 0; i < this.total; i++){
-            this.tail[i] = this.tail[i+1];
-        }
-        this.tail[this.total-1] = createVector(this.x,this.y);
-
         this.x = this.x + this.xspeed*msr ;
         this.y = this.y + this.yspeed*msr ;
 
@@ -57,7 +58,7 @@ function Snake(){
   
     this.visible = function() {
         fill(255);
-        for(var i = 0; i < this.tail.length ; i++){
+        for(var i = 0; i < this.total ; i++){
           rect(this.tail[i].x, this.tail[i].y, msr, msr);
         }
         rect(this.x , this.y ,msr,msr);
